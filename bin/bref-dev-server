@@ -24,7 +24,7 @@ $app->command('run [-a|--assets=]', function (OutputInterface $output, ?string $
 
     $server = new Process(['php', '-S', '0.0.0.0:8000', '-t', $assetsDirectory, $handler]);
     $server->setTimeout(null);
-    $server->setTty(true);
+    $server->setTty(PHP_OS_FAMILY !== "Windows");
     $server->setEnv([
         'PHP_CLI_SERVER_WORKERS' => 2,
         Handler::ASSETS_DIRECTORY_VARIABLE => $assetsDirectory,
