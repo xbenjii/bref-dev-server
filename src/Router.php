@@ -27,6 +27,10 @@ class Router
                 $pattern = self::patternToString($pattern);
             }
 
+            if (! $function['handler'] ?? '') {
+                continue;
+            }
+
             $routes[$pattern] = $function['handler'];
         }
 
