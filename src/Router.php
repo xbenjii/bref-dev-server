@@ -27,7 +27,7 @@ class Router
                 $pattern = self::patternToString($pattern);
             }
 
-            if (! $function['handler'] ?? '') {
+            if (! isset($function['handler'])) {
                 continue;
             }
 
